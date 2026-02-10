@@ -1,0 +1,20 @@
+server:
+  port: 5555
+  
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      routes:
+        - id: authentication-api
+          uri: lb://AUTHENTICATION
+          predicates:
+            - Path=/auth/**
+          filters:
+            - RewritePath=/auth/(?<segment>.*), /${segment}
+
+        - id: property-service
+          uri: lb://PROPERTYSERVICE
+          predicates:
+            - Path=/api/v1/property/**
