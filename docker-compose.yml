@@ -27,7 +27,11 @@ services:
       - "8081:8081"
 
   api-gateway:
+<<<<<<< HEAD
     build: ./api-gateway
+=======
+    build: ./api-gateway/api-gateway
+>>>>>>> 8b91b6c (db changes and prop files)
     container_name: api-gateway
     depends_on:
       - service-registry
@@ -66,3 +70,8 @@ services:
       - service-registry
     ports:
       - "9095:9095"
+<<<<<<< HEAD
+=======
+
+      
+>>>>>>> 8b91b6c (db changes and prop files)
